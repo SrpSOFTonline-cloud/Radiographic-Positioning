@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+<body>
+
+<h2>Add Procedure</h2>
+
+<input id="cat" placeholder="Category"><br><br>
+<input id="name" placeholder="Procedure Name"><br><br>
+
+<button onclick="save()">Save</button>
+
+<script>
+function save(){
+
+let cat = document.getElementById("cat").value;
+let name = document.getElementById("name").value;
+
+let data = JSON.parse(localStorage.getItem("proc")) || [];
+
+data.push({category:cat,name:name});
+
+localStorage.setItem("proc",JSON.stringify(data));
+
+alert("Saved");
+}
+</script>
+
+</body>
+</html>
